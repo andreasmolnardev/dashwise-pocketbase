@@ -1,0 +1,11 @@
+services:
+  pocketbase:
+    build: .
+    environment:
+      PB_ADMIN_EMAIL: default@dashwise.local
+      PB_ADMIN_PASSWORD: dashwiseIsAwesome
+    ports:
+      - "8090:8090"
+    volumes:
+      - ./pocketbase:/pb_data
+    restart: unless-stopped
