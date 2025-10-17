@@ -1,19 +1,24 @@
 FROM alpine:latest
-ARG PB_VERSION=0.22.9
 
-# Install curl (required by your init script)
-RUN apk add --no-cache curl
+ARG PB_VERSION=0.30.4   
+ARG TARGETARCH
 
-# Download and extract PocketBase release
-RUN wget -O /pocketbase.zip https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/pocketbase_${PB_VERSION}_linux_amd64.zip \
-    && unzip /pocketbase.zip -d /app \
-    && rm /pocketbase.zip
+# Install required tools
+RUN apk add --no-cache curl wget unzip
+
+RUN echo "Downloading PocketBase v${PB_VERSION} for ${TARGETARCH}" && \
+    case "${TARGETARCH}" in \
+      "arm64")  ARCH="arm64";; \
+      "amd64")  ARCH="amd64";; \
+      *) echo "Unsupported architecture: ${TARGETARCH}" && exit 1;; \
+    esac && \
+    wget -O /pocketbase.zip https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/pocketbase_${PB_VERSION}_linux_${ARCH}.zip && \
+    unzip /pocketbase.zip -d /app && \
+    rm /pocketbase.zip
 
 WORKDIR /app
 
-# Copying init script into the image
 COPY init_pb.sh /init_pb.sh
 RUN chmod +x /init_pb.sh
 
-# Run init script as entrypoint
 ENTRYPOINT ["/init_pb.sh"]
