@@ -22,18 +22,12 @@ PB_PID=$!
 
 sleep 5
 
-echo "Checking for existing PocketBase admin accounts..."
-if $PB_BINARY admin list --dir "$PB_DATA_DIR" | grep -q .; then
-  echo "✅ Admin account already exists — skipping creation."
+if $PB_BINARY superuser upsert "$ADMIN_EMAIL" "$ADMIN_PASSWORD" --dir "$PB_DATA_DIR"; then
+    echo "✅ PocketBase superuser successfully created: ${ADMIN_EMAIL}"
 else
-  echo "Creating PocketBase admin account..."
-  if $PB_BINARY admin create "$ADMIN_EMAIL" "$ADMIN_PASSWORD" --dir "$PB_DATA_DIR"; then
-    echo "✅ PocketBase admin successfully created: ${ADMIN_EMAIL}"
-  else
-    echo "❌ Error: Failed to create PocketBase admin account"
+    echo "❌ Error: Failed to create PocketBase superuser account"
     kill $PB_PID
     exit 1
-  fi
 fi
 
 wait $PB_PID
