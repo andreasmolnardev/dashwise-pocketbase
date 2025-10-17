@@ -13,6 +13,11 @@ ADMIN_PASSWORD="${PB_ADMIN_PASSWORD:-dashwiseIsAwesome}"
 # Ensure data and migrations directories exist
 mkdir -p "$PB_DATA_DIR" "$PB_MIGRATIONS_DIR"
 
+#run migrations
+$PB_BINARY migrate 
+  --dir "$PB_DATA_DIR" \
+  --migrationsDir "$PB_MIGRATIONS_DIR" &
+
 # Start PocketBase as background service with correct paths
 $PB_BINARY serve \
   --http "$PB_PORT" \
