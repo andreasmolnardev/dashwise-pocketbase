@@ -2,14 +2,422 @@
 migrate((app) => {
   const snapshot = [
     {
-      "id": "pbc_3142635823",
-      "listRule": null,
-      "viewRule": null,
       "createRule": null,
-      "updateRule": null,
       "deleteRule": null,
-      "name": "_superusers",
-      "type": "auth",
+      "fields": [
+        {
+          "autogeneratePattern": "[a-z0-9]{15}",
+          "hidden": false,
+          "id": "text3208210256",
+          "max": 15,
+          "min": 15,
+          "name": "id",
+          "pattern": "^[a-z0-9]+$",
+          "presentable": false,
+          "primaryKey": true,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "autogeneratePattern": "",
+          "hidden": false,
+          "id": "text455797646",
+          "max": 0,
+          "min": 0,
+          "name": "collectionRef",
+          "pattern": "",
+          "presentable": false,
+          "primaryKey": false,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "autogeneratePattern": "",
+          "hidden": false,
+          "id": "text127846527",
+          "max": 0,
+          "min": 0,
+          "name": "recordRef",
+          "pattern": "",
+          "presentable": false,
+          "primaryKey": false,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "autogeneratePattern": "",
+          "hidden": false,
+          "id": "text1582905952",
+          "max": 0,
+          "min": 0,
+          "name": "method",
+          "pattern": "",
+          "presentable": false,
+          "primaryKey": false,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "hidden": false,
+          "id": "autodate2990389176",
+          "name": "created",
+          "onCreate": true,
+          "onUpdate": false,
+          "presentable": false,
+          "system": true,
+          "type": "autodate"
+        },
+        {
+          "hidden": false,
+          "id": "autodate3332085495",
+          "name": "updated",
+          "onCreate": true,
+          "onUpdate": true,
+          "presentable": false,
+          "system": true,
+          "type": "autodate"
+        }
+      ],
+      "id": "pbc_2279338944",
+      "indexes": [
+        "CREATE INDEX `idx_mfas_collectionRef_recordRef` ON `_mfas` (collectionRef,recordRef)"
+      ],
+      "listRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
+      "name": "_mfas",
+      "system": true,
+      "type": "base",
+      "updateRule": null,
+      "viewRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId"
+    },
+    {
+      "createRule": null,
+      "deleteRule": null,
+      "fields": [
+        {
+          "autogeneratePattern": "[a-z0-9]{15}",
+          "hidden": false,
+          "id": "text3208210256",
+          "max": 15,
+          "min": 15,
+          "name": "id",
+          "pattern": "^[a-z0-9]+$",
+          "presentable": false,
+          "primaryKey": true,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "autogeneratePattern": "",
+          "hidden": false,
+          "id": "text455797646",
+          "max": 0,
+          "min": 0,
+          "name": "collectionRef",
+          "pattern": "",
+          "presentable": false,
+          "primaryKey": false,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "autogeneratePattern": "",
+          "hidden": false,
+          "id": "text127846527",
+          "max": 0,
+          "min": 0,
+          "name": "recordRef",
+          "pattern": "",
+          "presentable": false,
+          "primaryKey": false,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "cost": 8,
+          "hidden": true,
+          "id": "password901924565",
+          "max": 0,
+          "min": 0,
+          "name": "password",
+          "pattern": "",
+          "presentable": false,
+          "required": true,
+          "system": true,
+          "type": "password"
+        },
+        {
+          "autogeneratePattern": "",
+          "hidden": true,
+          "id": "text3866985172",
+          "max": 0,
+          "min": 0,
+          "name": "sentTo",
+          "pattern": "",
+          "presentable": false,
+          "primaryKey": false,
+          "required": false,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "hidden": false,
+          "id": "autodate2990389176",
+          "name": "created",
+          "onCreate": true,
+          "onUpdate": false,
+          "presentable": false,
+          "system": true,
+          "type": "autodate"
+        },
+        {
+          "hidden": false,
+          "id": "autodate3332085495",
+          "name": "updated",
+          "onCreate": true,
+          "onUpdate": true,
+          "presentable": false,
+          "system": true,
+          "type": "autodate"
+        }
+      ],
+      "id": "pbc_1638494021",
+      "indexes": [
+        "CREATE INDEX `idx_otps_collectionRef_recordRef` ON `_otps` (collectionRef, recordRef)"
+      ],
+      "listRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
+      "name": "_otps",
+      "system": true,
+      "type": "base",
+      "updateRule": null,
+      "viewRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId"
+    },
+    {
+      "createRule": null,
+      "deleteRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
+      "fields": [
+        {
+          "autogeneratePattern": "[a-z0-9]{15}",
+          "hidden": false,
+          "id": "text3208210256",
+          "max": 15,
+          "min": 15,
+          "name": "id",
+          "pattern": "^[a-z0-9]+$",
+          "presentable": false,
+          "primaryKey": true,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "autogeneratePattern": "",
+          "hidden": false,
+          "id": "text455797646",
+          "max": 0,
+          "min": 0,
+          "name": "collectionRef",
+          "pattern": "",
+          "presentable": false,
+          "primaryKey": false,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "autogeneratePattern": "",
+          "hidden": false,
+          "id": "text127846527",
+          "max": 0,
+          "min": 0,
+          "name": "recordRef",
+          "pattern": "",
+          "presentable": false,
+          "primaryKey": false,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "autogeneratePattern": "",
+          "hidden": false,
+          "id": "text2462348188",
+          "max": 0,
+          "min": 0,
+          "name": "provider",
+          "pattern": "",
+          "presentable": false,
+          "primaryKey": false,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "autogeneratePattern": "",
+          "hidden": false,
+          "id": "text1044722854",
+          "max": 0,
+          "min": 0,
+          "name": "providerId",
+          "pattern": "",
+          "presentable": false,
+          "primaryKey": false,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "hidden": false,
+          "id": "autodate2990389176",
+          "name": "created",
+          "onCreate": true,
+          "onUpdate": false,
+          "presentable": false,
+          "system": true,
+          "type": "autodate"
+        },
+        {
+          "hidden": false,
+          "id": "autodate3332085495",
+          "name": "updated",
+          "onCreate": true,
+          "onUpdate": true,
+          "presentable": false,
+          "system": true,
+          "type": "autodate"
+        }
+      ],
+      "id": "pbc_2281828961",
+      "indexes": [
+        "CREATE UNIQUE INDEX `idx_externalAuths_record_provider` ON `_externalAuths` (collectionRef, recordRef, provider)",
+        "CREATE UNIQUE INDEX `idx_externalAuths_collection_provider` ON `_externalAuths` (collectionRef, provider, providerId)"
+      ],
+      "listRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
+      "name": "_externalAuths",
+      "system": true,
+      "type": "base",
+      "updateRule": null,
+      "viewRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId"
+    },
+    {
+      "createRule": null,
+      "deleteRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
+      "fields": [
+        {
+          "autogeneratePattern": "[a-z0-9]{15}",
+          "hidden": false,
+          "id": "text3208210256",
+          "max": 15,
+          "min": 15,
+          "name": "id",
+          "pattern": "^[a-z0-9]+$",
+          "presentable": false,
+          "primaryKey": true,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "autogeneratePattern": "",
+          "hidden": false,
+          "id": "text455797646",
+          "max": 0,
+          "min": 0,
+          "name": "collectionRef",
+          "pattern": "",
+          "presentable": false,
+          "primaryKey": false,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "autogeneratePattern": "",
+          "hidden": false,
+          "id": "text127846527",
+          "max": 0,
+          "min": 0,
+          "name": "recordRef",
+          "pattern": "",
+          "presentable": false,
+          "primaryKey": false,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "autogeneratePattern": "",
+          "hidden": false,
+          "id": "text4228609354",
+          "max": 0,
+          "min": 0,
+          "name": "fingerprint",
+          "pattern": "",
+          "presentable": false,
+          "primaryKey": false,
+          "required": true,
+          "system": true,
+          "type": "text"
+        },
+        {
+          "hidden": false,
+          "id": "autodate2990389176",
+          "name": "created",
+          "onCreate": true,
+          "onUpdate": false,
+          "presentable": false,
+          "system": true,
+          "type": "autodate"
+        },
+        {
+          "hidden": false,
+          "id": "autodate3332085495",
+          "name": "updated",
+          "onCreate": true,
+          "onUpdate": true,
+          "presentable": false,
+          "system": true,
+          "type": "autodate"
+        }
+      ],
+      "id": "pbc_4275539003",
+      "indexes": [
+        "CREATE UNIQUE INDEX `idx_authOrigins_unique_pairs` ON `_authOrigins` (collectionRef, recordRef, fingerprint)"
+      ],
+      "listRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
+      "name": "_authOrigins",
+      "system": true,
+      "type": "base",
+      "updateRule": null,
+      "viewRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId"
+    },
+    {
+      "authAlert": {
+        "emailTemplate": {
+          "body": "<p>Hello,</p>\n<p>We noticed a login to your {APP_NAME} account from a new location.</p>\n<p>If this was you, you may disregard this email.</p>\n<p><strong>If this wasn't you, you should immediately change your {APP_NAME} account password to revoke access from all other locations.</strong></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+          "subject": "Login from a new location"
+        },
+        "enabled": true
+      },
+      "authRule": "",
+      "authToken": {
+        "duration": 86400
+      },
+      "confirmEmailChangeTemplate": {
+        "body": "<p>Hello,</p>\n<p>Click on the button below to confirm your new email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-email-change/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Confirm new email</a>\n</p>\n<p><i>If you didn't ask to change your email address, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+        "subject": "Confirm your {APP_NAME} new email address"
+      },
+      "createRule": null,
+      "deleteRule": null,
+      "emailChangeToken": {
+        "duration": 1800
+      },
       "fields": [
         {
           "autogeneratePattern": "[a-z0-9]{15}",
@@ -102,28 +510,39 @@ migrate((app) => {
           "type": "autodate"
         }
       ],
+      "fileToken": {
+        "duration": 180
+      },
+      "id": "pbc_3142635823",
       "indexes": [
         "CREATE UNIQUE INDEX `idx_tokenKey_pbc_3142635823` ON `_superusers` (`tokenKey`)",
         "CREATE UNIQUE INDEX `idx_email_pbc_3142635823` ON `_superusers` (`email`) WHERE `email` != ''"
       ],
-      "system": true,
-      "authRule": "",
+      "listRule": null,
       "manageRule": null,
-      "authAlert": {
-        "enabled": true,
-        "emailTemplate": {
-          "subject": "Login from a new location",
-          "body": "<p>Hello,</p>\n<p>We noticed a login to your {APP_NAME} account from a new location.</p>\n<p>If this was you, you may disregard this email.</p>\n<p><strong>If this wasn't you, you should immediately change your {APP_NAME} account password to revoke access from all other locations.</strong></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
-        }
+      "mfa": {
+        "duration": 1800,
+        "enabled": false,
+        "rule": ""
       },
+      "name": "_superusers",
       "oauth2": {
+        "enabled": false,
         "mappedFields": {
+          "avatarURL": "",
           "id": "",
           "name": "",
-          "username": "",
-          "avatarURL": ""
+          "username": ""
+        }
+      },
+      "otp": {
+        "duration": 180,
+        "emailTemplate": {
+          "body": "<p>Hello,</p>\n<p>Your one-time password is: <strong>{OTP}</strong></p>\n<p><i>If you didn't ask for the one-time password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+          "subject": "OTP for {APP_NAME}"
         },
-        "enabled": false
+        "enabled": false,
+        "length": 8
       },
       "passwordAuth": {
         "enabled": true,
@@ -131,57 +550,46 @@ migrate((app) => {
           "email"
         ]
       },
-      "mfa": {
-        "enabled": false,
-        "duration": 1800,
-        "rule": ""
-      },
-      "otp": {
-        "enabled": false,
-        "duration": 180,
-        "length": 8,
-        "emailTemplate": {
-          "subject": "OTP for {APP_NAME}",
-          "body": "<p>Hello,</p>\n<p>Your one-time password is: <strong>{OTP}</strong></p>\n<p><i>If you didn't ask for the one-time password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
-        }
-      },
-      "authToken": {
-        "duration": 86400
-      },
       "passwordResetToken": {
         "duration": 1800
       },
-      "emailChangeToken": {
-        "duration": 1800
+      "resetPasswordTemplate": {
+        "body": "<p>Hello,</p>\n<p>Click on the button below to reset your password.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-password-reset/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Reset password</a>\n</p>\n<p><i>If you didn't ask to reset your password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+        "subject": "Reset your {APP_NAME} password"
+      },
+      "system": true,
+      "type": "auth",
+      "updateRule": null,
+      "verificationTemplate": {
+        "body": "<p>Hello,</p>\n<p>Thank you for joining us at {APP_NAME}.</p>\n<p>Click on the button below to verify your email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-verification/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Verify</a>\n</p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+        "subject": "Verify your {APP_NAME} email"
       },
       "verificationToken": {
         "duration": 259200
       },
-      "fileToken": {
-        "duration": 180
-      },
-      "verificationTemplate": {
-        "subject": "Verify your {APP_NAME} email",
-        "body": "<p>Hello,</p>\n<p>Thank you for joining us at {APP_NAME}.</p>\n<p>Click on the button below to verify your email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-verification/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Verify</a>\n</p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
-      },
-      "resetPasswordTemplate": {
-        "subject": "Reset your {APP_NAME} password",
-        "body": "<p>Hello,</p>\n<p>Click on the button below to reset your password.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-password-reset/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Reset password</a>\n</p>\n<p><i>If you didn't ask to reset your password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
-      },
-      "confirmEmailChangeTemplate": {
-        "subject": "Confirm your {APP_NAME} new email address",
-        "body": "<p>Hello,</p>\n<p>Click on the button below to confirm your new email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-email-change/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Confirm new email</a>\n</p>\n<p><i>If you didn't ask to change your email address, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
-      }
+      "viewRule": null
     },
     {
-      "id": "_pb_users_auth_",
-      "listRule": "id = @request.auth.id",
-      "viewRule": "id = @request.auth.id",
+      "authAlert": {
+        "emailTemplate": {
+          "body": "<p>Hello,</p>\n<p>We noticed a login to your {APP_NAME} account from a new location.</p>\n<p>If this was you, you may disregard this email.</p>\n<p><strong>If this wasn't you, you should immediately change your {APP_NAME} account password to revoke access from all other locations.</strong></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+          "subject": "Login from a new location"
+        },
+        "enabled": true
+      },
+      "authRule": "",
+      "authToken": {
+        "duration": 604800
+      },
+      "confirmEmailChangeTemplate": {
+        "body": "<p>Hello,</p>\n<p>Click on the button below to confirm your new email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-email-change/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Confirm new email</a>\n</p>\n<p><i>If you didn't ask to change your email address, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+        "subject": "Confirm your {APP_NAME} new email address"
+      },
       "createRule": "",
-      "updateRule": "id = @request.auth.id",
       "deleteRule": "id = @request.auth.id",
-      "name": "users",
-      "type": "auth",
+      "emailChangeToken": {
+        "duration": 1800
+      },
       "fields": [
         {
           "autogeneratePattern": "[a-z0-9]{15}",
@@ -308,28 +716,39 @@ migrate((app) => {
           "type": "autodate"
         }
       ],
+      "fileToken": {
+        "duration": 180
+      },
+      "id": "_pb_users_auth_",
       "indexes": [
         "CREATE UNIQUE INDEX `idx_tokenKey__pb_users_auth_` ON `users` (`tokenKey`)",
         "CREATE UNIQUE INDEX `idx_email__pb_users_auth_` ON `users` (`email`) WHERE `email` != ''"
       ],
-      "system": false,
-      "authRule": "",
+      "listRule": "id = @request.auth.id",
       "manageRule": null,
-      "authAlert": {
-        "enabled": true,
-        "emailTemplate": {
-          "subject": "Login from a new location",
-          "body": "<p>Hello,</p>\n<p>We noticed a login to your {APP_NAME} account from a new location.</p>\n<p>If this was you, you may disregard this email.</p>\n<p><strong>If this wasn't you, you should immediately change your {APP_NAME} account password to revoke access from all other locations.</strong></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
-        }
+      "mfa": {
+        "duration": 1800,
+        "enabled": false,
+        "rule": ""
       },
+      "name": "users",
       "oauth2": {
+        "enabled": false,
         "mappedFields": {
+          "avatarURL": "avatar",
           "id": "",
           "name": "name",
-          "username": "",
-          "avatarURL": "avatar"
+          "username": ""
+        }
+      },
+      "otp": {
+        "duration": 180,
+        "emailTemplate": {
+          "body": "<p>Hello,</p>\n<p>Your one-time password is: <strong>{OTP}</strong></p>\n<p><i>If you didn't ask for the one-time password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+          "subject": "OTP for {APP_NAME}"
         },
-        "enabled": false
+        "enabled": false,
+        "length": 8
       },
       "passwordAuth": {
         "enabled": true,
@@ -337,453 +756,28 @@ migrate((app) => {
           "email"
         ]
       },
-      "mfa": {
-        "enabled": false,
-        "duration": 1800,
-        "rule": ""
-      },
-      "otp": {
-        "enabled": false,
-        "duration": 180,
-        "length": 8,
-        "emailTemplate": {
-          "subject": "OTP for {APP_NAME}",
-          "body": "<p>Hello,</p>\n<p>Your one-time password is: <strong>{OTP}</strong></p>\n<p><i>If you didn't ask for the one-time password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
-        }
-      },
-      "authToken": {
-        "duration": 604800
-      },
       "passwordResetToken": {
         "duration": 1800
       },
-      "emailChangeToken": {
-        "duration": 1800
+      "resetPasswordTemplate": {
+        "body": "<p>Hello,</p>\n<p>Click on the button below to reset your password.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-password-reset/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Reset password</a>\n</p>\n<p><i>If you didn't ask to reset your password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+        "subject": "Reset your {APP_NAME} password"
+      },
+      "system": false,
+      "type": "auth",
+      "updateRule": "id = @request.auth.id",
+      "verificationTemplate": {
+        "body": "<p>Hello,</p>\n<p>Thank you for joining us at {APP_NAME}.</p>\n<p>Click on the button below to verify your email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-verification/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Verify</a>\n</p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>",
+        "subject": "Verify your {APP_NAME} email"
       },
       "verificationToken": {
         "duration": 259200
       },
-      "fileToken": {
-        "duration": 180
-      },
-      "verificationTemplate": {
-        "subject": "Verify your {APP_NAME} email",
-        "body": "<p>Hello,</p>\n<p>Thank you for joining us at {APP_NAME}.</p>\n<p>Click on the button below to verify your email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-verification/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Verify</a>\n</p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
-      },
-      "resetPasswordTemplate": {
-        "subject": "Reset your {APP_NAME} password",
-        "body": "<p>Hello,</p>\n<p>Click on the button below to reset your password.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-password-reset/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Reset password</a>\n</p>\n<p><i>If you didn't ask to reset your password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
-      },
-      "confirmEmailChangeTemplate": {
-        "subject": "Confirm your {APP_NAME} new email address",
-        "body": "<p>Hello,</p>\n<p>Click on the button below to confirm your new email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-email-change/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Confirm new email</a>\n</p>\n<p><i>If you didn't ask to change your email address, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
-      }
+      "viewRule": "id = @request.auth.id"
     },
     {
-      "id": "pbc_4275539003",
-      "listRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
-      "viewRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
       "createRule": null,
-      "updateRule": null,
-      "deleteRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
-      "name": "_authOrigins",
-      "type": "base",
-      "fields": [
-        {
-          "autogeneratePattern": "[a-z0-9]{15}",
-          "hidden": false,
-          "id": "text3208210256",
-          "max": 15,
-          "min": 15,
-          "name": "id",
-          "pattern": "^[a-z0-9]+$",
-          "presentable": false,
-          "primaryKey": true,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "autogeneratePattern": "",
-          "hidden": false,
-          "id": "text455797646",
-          "max": 0,
-          "min": 0,
-          "name": "collectionRef",
-          "pattern": "",
-          "presentable": false,
-          "primaryKey": false,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "autogeneratePattern": "",
-          "hidden": false,
-          "id": "text127846527",
-          "max": 0,
-          "min": 0,
-          "name": "recordRef",
-          "pattern": "",
-          "presentable": false,
-          "primaryKey": false,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "autogeneratePattern": "",
-          "hidden": false,
-          "id": "text4228609354",
-          "max": 0,
-          "min": 0,
-          "name": "fingerprint",
-          "pattern": "",
-          "presentable": false,
-          "primaryKey": false,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "hidden": false,
-          "id": "autodate2990389176",
-          "name": "created",
-          "onCreate": true,
-          "onUpdate": false,
-          "presentable": false,
-          "system": true,
-          "type": "autodate"
-        },
-        {
-          "hidden": false,
-          "id": "autodate3332085495",
-          "name": "updated",
-          "onCreate": true,
-          "onUpdate": true,
-          "presentable": false,
-          "system": true,
-          "type": "autodate"
-        }
-      ],
-      "indexes": [
-        "CREATE UNIQUE INDEX `idx_authOrigins_unique_pairs` ON `_authOrigins` (collectionRef, recordRef, fingerprint)"
-      ],
-      "system": true
-    },
-    {
-      "id": "pbc_2281828961",
-      "listRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
-      "viewRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
-      "createRule": null,
-      "updateRule": null,
-      "deleteRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
-      "name": "_externalAuths",
-      "type": "base",
-      "fields": [
-        {
-          "autogeneratePattern": "[a-z0-9]{15}",
-          "hidden": false,
-          "id": "text3208210256",
-          "max": 15,
-          "min": 15,
-          "name": "id",
-          "pattern": "^[a-z0-9]+$",
-          "presentable": false,
-          "primaryKey": true,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "autogeneratePattern": "",
-          "hidden": false,
-          "id": "text455797646",
-          "max": 0,
-          "min": 0,
-          "name": "collectionRef",
-          "pattern": "",
-          "presentable": false,
-          "primaryKey": false,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "autogeneratePattern": "",
-          "hidden": false,
-          "id": "text127846527",
-          "max": 0,
-          "min": 0,
-          "name": "recordRef",
-          "pattern": "",
-          "presentable": false,
-          "primaryKey": false,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "autogeneratePattern": "",
-          "hidden": false,
-          "id": "text2462348188",
-          "max": 0,
-          "min": 0,
-          "name": "provider",
-          "pattern": "",
-          "presentable": false,
-          "primaryKey": false,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "autogeneratePattern": "",
-          "hidden": false,
-          "id": "text1044722854",
-          "max": 0,
-          "min": 0,
-          "name": "providerId",
-          "pattern": "",
-          "presentable": false,
-          "primaryKey": false,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "hidden": false,
-          "id": "autodate2990389176",
-          "name": "created",
-          "onCreate": true,
-          "onUpdate": false,
-          "presentable": false,
-          "system": true,
-          "type": "autodate"
-        },
-        {
-          "hidden": false,
-          "id": "autodate3332085495",
-          "name": "updated",
-          "onCreate": true,
-          "onUpdate": true,
-          "presentable": false,
-          "system": true,
-          "type": "autodate"
-        }
-      ],
-      "indexes": [
-        "CREATE UNIQUE INDEX `idx_externalAuths_record_provider` ON `_externalAuths` (collectionRef, recordRef, provider)",
-        "CREATE UNIQUE INDEX `idx_externalAuths_collection_provider` ON `_externalAuths` (collectionRef, provider, providerId)"
-      ],
-      "system": true
-    },
-    {
-      "id": "pbc_2279338944",
-      "listRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
-      "viewRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
-      "createRule": null,
-      "updateRule": null,
       "deleteRule": null,
-      "name": "_mfas",
-      "type": "base",
-      "fields": [
-        {
-          "autogeneratePattern": "[a-z0-9]{15}",
-          "hidden": false,
-          "id": "text3208210256",
-          "max": 15,
-          "min": 15,
-          "name": "id",
-          "pattern": "^[a-z0-9]+$",
-          "presentable": false,
-          "primaryKey": true,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "autogeneratePattern": "",
-          "hidden": false,
-          "id": "text455797646",
-          "max": 0,
-          "min": 0,
-          "name": "collectionRef",
-          "pattern": "",
-          "presentable": false,
-          "primaryKey": false,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "autogeneratePattern": "",
-          "hidden": false,
-          "id": "text127846527",
-          "max": 0,
-          "min": 0,
-          "name": "recordRef",
-          "pattern": "",
-          "presentable": false,
-          "primaryKey": false,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "autogeneratePattern": "",
-          "hidden": false,
-          "id": "text1582905952",
-          "max": 0,
-          "min": 0,
-          "name": "method",
-          "pattern": "",
-          "presentable": false,
-          "primaryKey": false,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "hidden": false,
-          "id": "autodate2990389176",
-          "name": "created",
-          "onCreate": true,
-          "onUpdate": false,
-          "presentable": false,
-          "system": true,
-          "type": "autodate"
-        },
-        {
-          "hidden": false,
-          "id": "autodate3332085495",
-          "name": "updated",
-          "onCreate": true,
-          "onUpdate": true,
-          "presentable": false,
-          "system": true,
-          "type": "autodate"
-        }
-      ],
-      "indexes": [
-        "CREATE INDEX `idx_mfas_collectionRef_recordRef` ON `_mfas` (collectionRef,recordRef)"
-      ],
-      "system": true
-    },
-    {
-      "id": "pbc_1638494021",
-      "listRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
-      "viewRule": "@request.auth.id != '' && recordRef = @request.auth.id && collectionRef = @request.auth.collectionId",
-      "createRule": null,
-      "updateRule": null,
-      "deleteRule": null,
-      "name": "_otps",
-      "type": "base",
-      "fields": [
-        {
-          "autogeneratePattern": "[a-z0-9]{15}",
-          "hidden": false,
-          "id": "text3208210256",
-          "max": 15,
-          "min": 15,
-          "name": "id",
-          "pattern": "^[a-z0-9]+$",
-          "presentable": false,
-          "primaryKey": true,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "autogeneratePattern": "",
-          "hidden": false,
-          "id": "text455797646",
-          "max": 0,
-          "min": 0,
-          "name": "collectionRef",
-          "pattern": "",
-          "presentable": false,
-          "primaryKey": false,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "autogeneratePattern": "",
-          "hidden": false,
-          "id": "text127846527",
-          "max": 0,
-          "min": 0,
-          "name": "recordRef",
-          "pattern": "",
-          "presentable": false,
-          "primaryKey": false,
-          "required": true,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "cost": 8,
-          "hidden": true,
-          "id": "password901924565",
-          "max": 0,
-          "min": 0,
-          "name": "password",
-          "pattern": "",
-          "presentable": false,
-          "required": true,
-          "system": true,
-          "type": "password"
-        },
-        {
-          "autogeneratePattern": "",
-          "hidden": true,
-          "id": "text3866985172",
-          "max": 0,
-          "min": 0,
-          "name": "sentTo",
-          "pattern": "",
-          "presentable": false,
-          "primaryKey": false,
-          "required": false,
-          "system": true,
-          "type": "text"
-        },
-        {
-          "hidden": false,
-          "id": "autodate2990389176",
-          "name": "created",
-          "onCreate": true,
-          "onUpdate": false,
-          "presentable": false,
-          "system": true,
-          "type": "autodate"
-        },
-        {
-          "hidden": false,
-          "id": "autodate3332085495",
-          "name": "updated",
-          "onCreate": true,
-          "onUpdate": true,
-          "presentable": false,
-          "system": true,
-          "type": "autodate"
-        }
-      ],
-      "indexes": [
-        "CREATE INDEX `idx_otps_collectionRef_recordRef` ON `_otps` (collectionRef, recordRef)"
-      ],
-      "system": true
-    },
-    {
-      "id": "pbc_1477109113",
-      "listRule": null,
-      "viewRule": null,
-      "createRule": null,
-      "updateRule": null,
-      "deleteRule": null,
-      "name": "notificationItems",
-      "type": "base",
       "fields": [
         {
           "autogeneratePattern": "[a-z0-9]{15}",
@@ -884,18 +878,18 @@ migrate((app) => {
           "type": "autodate"
         }
       ],
+      "id": "pbc_1477109113",
       "indexes": [],
-      "system": false
+      "listRule": null,
+      "name": "notificationItems",
+      "system": false,
+      "type": "base",
+      "updateRule": null,
+      "viewRule": null
     },
     {
-      "id": "pbc_2969282176",
-      "listRule": null,
-      "viewRule": null,
       "createRule": null,
-      "updateRule": null,
       "deleteRule": null,
-      "name": "notificationTopics",
-      "type": "base",
       "fields": [
         {
           "autogeneratePattern": "[a-z0-9]{15}",
@@ -960,18 +954,18 @@ migrate((app) => {
           "type": "autodate"
         }
       ],
+      "id": "pbc_2969282176",
       "indexes": [],
-      "system": false
+      "listRule": null,
+      "name": "notificationTopics",
+      "system": false,
+      "type": "base",
+      "updateRule": null,
+      "viewRule": null
     },
     {
-      "id": "pbc_3779370597",
-      "listRule": "associatedUserId = @request.auth.id",
-      "viewRule": "associatedUserId = @request.auth.id",
-      "createRule": "associatedUserId = @request.auth.id",
-      "updateRule": "associatedUserId = @request.auth.id",
+      "createRule": "@request.auth.id = @request.body.associatedUserId",
       "deleteRule": null,
-      "name": "userConfig",
-      "type": "base",
       "fields": [
         {
           "autogeneratePattern": "[a-z0-9]{15}",
@@ -1032,18 +1026,18 @@ migrate((app) => {
           "type": "autodate"
         }
       ],
+      "id": "pbc_3779370597",
       "indexes": [],
-      "system": false
+      "listRule": "associatedUserId = @request.auth.id",
+      "name": "userConfig",
+      "system": false,
+      "type": "base",
+      "updateRule": "associatedUserId = @request.auth.id",
+      "viewRule": "associatedUserId = @request.auth.id"
     },
     {
-      "id": "pbc_169670634",
-      "listRule": null,
-      "viewRule": null,
       "createRule": null,
-      "updateRule": null,
       "deleteRule": null,
-      "name": "userSearchItems",
-      "type": "base",
       "fields": [
         {
           "autogeneratePattern": "[a-z0-9]{15}",
@@ -1104,18 +1098,18 @@ migrate((app) => {
           "type": "autodate"
         }
       ],
+      "id": "pbc_169670634",
       "indexes": [],
-      "system": false
+      "listRule": null,
+      "name": "userSearchItems",
+      "system": false,
+      "type": "base",
+      "updateRule": null,
+      "viewRule": null
     },
     {
-      "id": "pbc_2882600305",
-      "listRule": "",
-      "viewRule": null,
       "createRule": null,
-      "updateRule": null,
       "deleteRule": null,
-      "name": "wallpaperStore",
-      "type": "base",
       "fields": [
         {
           "autogeneratePattern": "[a-z0-9]{15}",
@@ -1194,8 +1188,14 @@ migrate((app) => {
           "type": "autodate"
         }
       ],
+      "id": "pbc_2882600305",
       "indexes": [],
-      "system": false
+      "listRule": "",
+      "name": "wallpaperStore",
+      "system": false,
+      "type": "base",
+      "updateRule": null,
+      "viewRule": null
     }
   ];
 
