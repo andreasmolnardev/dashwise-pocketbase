@@ -7,5 +7,5 @@ services:
     ports:
       - "8090:8090"
     volumes:
-      - ./pocketbase:/pb_data
+      - ./pocketbase:/app/pb_data
     restart: unless-stopped
