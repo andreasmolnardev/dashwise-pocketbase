@@ -964,7 +964,7 @@ migrate((app) => {
       "viewRule": null
     },
     {
-      "createRule": "@request.auth.id = @request.body.associatedUserId",
+      "createRule": "",
       "deleteRule": null,
       "fields": [
         {
@@ -1108,7 +1108,7 @@ migrate((app) => {
       "viewRule": null
     },
     {
-      "createRule": null,
+      "createRule": "@request.auth.id = @request.body.userId",
       "deleteRule": null,
       "fields": [
         {
@@ -1190,12 +1190,12 @@ migrate((app) => {
       ],
       "id": "pbc_2882600305",
       "indexes": [],
-      "listRule": "",
+      "listRule": "@request.auth.id = userId",
       "name": "wallpaperStore",
       "system": false,
       "type": "base",
-      "updateRule": null,
-      "viewRule": null
+      "updateRule": "",
+      "viewRule": "@request.auth.id = userId"
     }
   ];
 
