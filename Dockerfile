@@ -18,6 +18,8 @@ RUN echo "Downloading PocketBase v${PB_VERSION} for ${TARGETARCH}" && \
 
 WORKDIR /app
 
+COPY ./pb_migrations /app/pb_migrations
+
 COPY init_pb.sh /init_pb.sh
 RUN chmod +x /init_pb.sh
 

@@ -4,8 +4,8 @@ set -e
 PB_BINARY="/app/pocketbase"
 PB_PORT="0.0.0.0:8090"
 
-PB_DATA_DIR="./pb_data"
-PB_MIGRATIONS_DIR="./pb_migrations"
+PB_DATA_DIR="/app/pb_data"
+PB_MIGRATIONS_DIR="/app/pb_migrations"
 
 ADMIN_EMAIL="${PB_ADMIN_EMAIL:-default@dashwise.local}"
 ADMIN_PASSWORD="${PB_ADMIN_PASSWORD:-dashwiseIsAwesome}"
